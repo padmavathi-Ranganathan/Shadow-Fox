@@ -1,1 +1,44 @@
+# GPT-2 Text Generation 
 
+##  Overview
+This project demonstrates text generation using the GPT-2 (Generative Pre-trained Transformer 2) model.  
+It generates human-like text based on a given input prompt using a pretrained deep learning model.
+
+---
+
+##  Objective
+- To understand how transformer-based models work
+- To generate meaningful text using a pretrained GPT-2 model
+- To explore Natural Language Processing (NLP)
+
+---
+
+## Technologies Used
+- Python
+- Transformers (Hugging Face)
+- PyTorch
+- NumPy
+
+---
+
+##  Working Process
+1. Load pretrained GPT-2 model
+2. Provide an input prompt
+3. Generate text using the model
+4. Display the generated output
+
+---
+
+## Sample Code
+```python
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+
+input_text = "Artificial Intelligence is"
+inputs = tokenizer.encode(input_text, return_tensors='pt')
+
+outputs = model.generate(inputs, max_length=50, num_return_sequences=1)
+
+print(tokenizer.decode(outputs[0]))
